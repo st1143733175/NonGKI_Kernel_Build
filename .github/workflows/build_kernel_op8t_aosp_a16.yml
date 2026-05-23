@@ -442,13 +442,13 @@ jobs:
         if: env.SUSFS_ENABLE == 'true' && env.SUSFS_FIXED == 'true'
         run: |
           cd $GITHUB_WORKSPACE/device_kernel/
-          cp NonGKI_Kernel_Patches/kona_oos/namespace_fixed.patch ./
-          cp NonGKI_Kernel_Patches/kona_oos/task_mmu_fixed.patch ./
-          cp NonGKI_Kernel_Patches/kona_oos/ksu_backport.patch ./
+          cp NonGKI_Kernel_Patches/kona_oos/susfs_155_fixed.patch ./
+          cp NonGKI_Kernel_Patches/kona_oos/susfs_2000_fixed.patch ./
+          cp NonGKI_Kernel_Patches/kona_oos/susfs_fixed.patch ./
 
-          patch -p1 < namespace_fixed.patch || true
-          patch -p1 < task_mmu_fixed.patch || true
-          patch -p1 < ksu_backport.patch || true
+          patch -p1 < susfs_155_fixed.patch || true
+          patch -p1 < susfs_2000_fixed.patch || true
+          patch -p1 < susfs_fixed.patch || true
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1.2
